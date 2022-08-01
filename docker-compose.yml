@@ -1,0 +1,33 @@
+version: "3.4"
+
+services:
+  shopping-lists:
+    build: shopping-lists
+    image: shopping-lists
+    restart: "no"
+    volumes:
+      - ./shopping-lists/:/app
+    ports:
+      - 7777:7777
+    depends_on:
+      - database
+      - flyway
+    env_file:
+      - project.env
+
+  database:
+    container_name: database-p1-1397492b-999a-49d6-b3c1-7d6d7c1069b2
+    image: postgres:14.1
+    restart: "no"
+    env_file:
+        - project.env
+
+  flyway:
+    image: flyway/flyway:8.4.0-alpine
+    depends_on:
+      - database
+    volumes:
+      - .:/flyway/sql
+    command: -connectRetries=60 -baselineOnMigrate=true migrate
+    env_file:
+      - project.env

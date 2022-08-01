@@ -1,0 +1,8 @@
+<% layout("./layouts/layout.eta") %>
+<body style="background-size:auto;background-position:center; background-image: url(https://pixabay.com/get/g014d4110487cc72c34b5f97be658311560d0b7eaaf7375f4f9ff577541b087936395a248b5caf80eeab50ffda5d934fa.jpg); background-repeat: space; color:white;">
+<h1>Quiz Hero</h1>
+<h2>Here you can take part in a quiz and add questions for you and others to answer.<h2>
+<a href="/questions">See questions (requires login)</a><br/>
+<a href="/auth/login">Login</a><br/>
+<a href="/auth/register">Register</a><br/>
+</body>
